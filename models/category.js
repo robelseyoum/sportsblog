@@ -18,3 +18,8 @@ module.exports.getCategories = function(callback, limit) {
     .limit(limit)
     .sort([["title", "ascending"]]);
 };
+
+//Add Category
+module.exports.addCategory = function(category, callback) {
+  Category.create(category, callback);
+};

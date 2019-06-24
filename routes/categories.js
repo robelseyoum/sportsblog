@@ -18,4 +18,19 @@ router.get("/", (req, res, next) => {
   });
 });
 
+//handle post request from
+//http://localhost:3000/manage/categories/add page
+router.post("/add", (req, res, next) => {
+  let category = new Category();
+  category.title = req.body.title;
+  category.description = req.body.description;
+
+  Category.addCategory(category, (err, category) => {
+    if (err) {
+      res.send(err);
+    }
+    res.redirect("/manage/categories");
+  });
+});
+
 module.exports = router;
