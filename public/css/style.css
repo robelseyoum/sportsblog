@@ -21,3 +21,16 @@
   background: rgb(223, 59, 59);
   color: white;
 }
+
+.showcase {
+  background: url("/img/home-bg.jpg") no-repeat 0 -150px;
+  min-height: 400px;
+  color: white;
+  margin-top: 0;
+  border-radius: 0;
+}
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
