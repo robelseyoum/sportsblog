@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const expressValidator = require("express-validator");
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 //Mongoose Connect
 mongoose.connect("mongodb://localhost/sportsblog");
@@ -25,12 +26,24 @@ const manage = require("./routes/manage");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
+//Moment for date
+app.locals.moment = moment;
+
 //body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //set static folder
 app.use(express.static(path.join(__dirname, "public")));
+
+//session
+app.use(
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: true
+  })
+);
 
 //Express messages
 app.use(require("connect-flash")());

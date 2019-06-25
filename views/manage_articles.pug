@@ -1,4 +1,23 @@
 extends layout
 
 block content
-    h1 #{title}
+    .container
+        !=messages()
+        .row
+            .col-md-9
+                h1 #{title}
+            .col-md-3
+                a(class="btn btn-secondary mt-2", href='/manage/article/add') Add Article
+        table(class='table table-striped')
+            tr
+                th Article Title
+                th Date Published
+                th Author
+                th Action
+            each article, i in articles 
+                tr
+                    td #{article.title}
+                    td #{moment(article.created_at).format('MMMM Do YYYY, h:mm:ss a')}
+                    td #{article.author}
+                    td
+                        a(class="btn btn-tiny btn-info" href='/manage/articles/edit/'+article._id) Edit

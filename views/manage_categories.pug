@@ -2,7 +2,12 @@ extends layout
 
 block content
     .container
-        h1 #{title}
+        .row
+            .col-md-9
+                h1 #{title}
+            .col-md-3
+                a(class="btn btn-secondary mt-2", href='/manage/categories/add') Add Category
+        !=messages()
         table(class='table table-striped')
             tr
                 th Category Title

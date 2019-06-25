@@ -1,0 +1,23 @@
+#messages {
+  margin: 10px;
+}
+
+#messages ul {
+  margin: 0;
+  padding: 0;
+}
+
+#messages li {
+  list-style: none;
+  padding: 10px;
+}
+
+#messages .success {
+  background: rgb(106, 219, 106);
+  color: rgb(231, 233, 232);
+}
+
+#messages .error {
+  background: rgb(223, 59, 59);
+  color: white;
+}
