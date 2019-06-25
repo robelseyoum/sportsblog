@@ -67,3 +67,9 @@ module.exports.updateArticle = function(query, update, options, callback) {
 module.exports.removeArticle = function(query, callback) {
   Article.remove(query, callback);
 };
+
+//get articles by Category
+module.exports.getCategoryArticles = function(categoryId, callback) {
+  let query = { category: categoryId };
+  Article.find(query, callback).sort([["title", "ascending"]]);
+};
